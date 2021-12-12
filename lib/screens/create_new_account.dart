@@ -19,7 +19,7 @@ class CreateNewAccount extends StatelessWidget {
             elevation: 0,
             leading: IconButton(
               onPressed: () {
-                Navigator.pop(context,'LoginScreen');
+                Navigator.pop(context, 'LoginScreen');
               },
               icon: const Icon(
                 Icons.arrow_back_ios,
@@ -33,7 +33,6 @@ class CreateNewAccount extends StatelessWidget {
             centerTitle: true,
           ),
           backgroundColor: Colors.transparent,
-
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -59,7 +58,7 @@ class CreateNewAccount extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: size.height * 0.08,
+                      top: size.height * 0.05,
                       left: size.width * 0.56,
                       child: Container(
                         height: size.width * 0.1,
