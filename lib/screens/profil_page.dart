@@ -1,6 +1,7 @@
 import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:app_le_bon_francais/widgets/btmappbar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -28,28 +29,7 @@ class MapScreenState extends State<ProfilePage>
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          bottomNavigationBar: BottomAppBar(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(icon: const Icon(Icons.home), onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },),
-                  IconButton(icon: const Icon(Icons.search), onPressed: () {
-                    Navigator.pushNamed(context, 'ResearchScreen');
-                  },),
-                  IconButton(icon: const Icon(Icons.map), onPressed: () {
-                    Navigator.pushNamed(context, 'MapScreen');
-                  },),
-                  IconButton(icon: const Icon(Icons.account_circle_outlined),
-                    color: Colors.white,
-                    onPressed: () {},),
-                ],
-              ),
-              shape: const CircularNotchedRectangle(),
-              color: Colors.redDark
-          ),
+          bottomNavigationBar: const BtmAppBar(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
             tooltip: 'Increment',
