@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: unused_element, non_constant_identifier_names
 _BottomAppBarWidget () {
   @override
+  // ignore: unused_element
   Widget build(BuildContext context) {
     return BottomAppBar(
         child: Row(

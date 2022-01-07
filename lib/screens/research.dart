@@ -1,37 +1,142 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ResearchScreen extends StatelessWidget {
+class ResearchScreen extends StatefulWidget {
   const ResearchScreen({Key? key}) : super(key: key);
 
+  //`createState()` will create the mutable state for this widget at
+  //a given location in the tree.
+  @override
+  _ResearchScreenState createState() => _ResearchScreenState();
+}
+
+//Our Home state, the logic and internal state for a StatefulWidget.
+class _ResearchScreenState extends State<ResearchScreen> {
+  final _searchview = TextEditingController();
+
+  bool _firstSearch = true;
+  String _query = "";
+
+  List<String>? _nebulae;
+  List<String>? _filterList;
+
+  @override
+  void initState() {
+    super.initState();
+    _nebulae = <String>[];
+    _nebulae = [
+      "Mathys",
+      "Baptiste",
+      "Thaïs",
+      "Tanguy",
+      "Louis",
+      "Théo",
+      "Mélissa",
+      "Ant",
+      "Bernad 68",
+      "Flame",
+      "Eagle",
+      "Horse Head",
+      "Elephant's Trunk",
+      "Butterfly"
+    ];
+    _nebulae!.sort();
+  }
+
+  _ResearchScreenState() {
+    //Register a closure to be called when the object changes.
+    _searchview.addListener(() {
+      if (_searchview.text.isEmpty) {
+        //Notify the framework that the internal state of this object has changed.
+        setState(() {
+          _firstSearch = true;
+          _query = "";
+        });
+      } else {
+        setState(() {
+          _firstSearch = false;
+          _query = _searchview.text;
+        });
+      }
+    });
+  }
+
+//Build our Home widget
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(icon: const Icon(Icons.home), onPressed: () {Navigator.pushNamed(context, '/');},),
-              IconButton(icon: const Icon(Icons.search),color: Colors.white, onPressed: () {},),
-              IconButton(icon: const Icon(Icons.map), onPressed: () {Navigator.pushNamed(context, 'MapScreen');},),
-              IconButton(icon: const Icon(Icons.account_circle_outlined), onPressed: () {Navigator.pushNamed(context, 'LoginScreen');},),
-            ],
-          ),
-          shape: const CircularNotchedRectangle(),
-          color: Colors.redDark
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("SearchView ListView"),
       ),
-      body: const Align(
-        alignment: Alignment.center,
-        child: Text("RESEARCH", style: TextStyle(fontSize: 30, color: Colors.redDark)),
+      body: Container(
+        margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+        child: Column(
+          children: <Widget>[
+            _createSearchView(),
+            _firstSearch ? _createListView() : _performSearch()
+          ],
+        ),
       ),
+    );
+  }
+  //Create a SearchView
+  Widget _createSearchView() {
+    return Container(
+      decoration: BoxDecoration(border: Border.all(width: 1.0)),
+      child: TextField(
+        controller: _searchview,
+        decoration: InputDecoration(
+          hintText: "Search",
+          hintStyle: TextStyle(color: Colors.grey[300]),
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+  //Create a ListView widget
+  Widget _createListView() {
+    return Flexible(
+      child: ListView.builder(
+          itemCount: _nebulae!.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              color: Colors.white,
+              elevation: 5.0,
+              child: Container(
+                margin: const EdgeInsets.all(15.0),
+                child: Text(_nebulae![index]),
+              ),
+            );
+          }),
+    );
+  }
+  //Perform actual search
+  Widget _performSearch() {
+    _filterList = <String>[];
+    for (int i = 0; i < _nebulae!.length; i++) {
+      var item = _nebulae![i];
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      if (item.toLowerCase().contains(_query.toLowerCase())) {
+        _filterList?.add(item);
+      }
+    }
+    return _createFilteredListView();
+  }
+  //Create the Filtered ListView
+  Widget _createFilteredListView() {
+    return Flexible(
+      child: ListView.builder(
+          itemCount: _filterList!.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              color: Colors.white,
+              elevation: 5.0,
+              child: Container(
+                margin: const EdgeInsets.all(15.0),
+                child: Text(_filterList![index]),
+              ),
+            );
+          }),
     );
   }
 }

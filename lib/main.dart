@@ -18,19 +18,18 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.darkblue,
           backgroundColor: Colors.blueGrey
       ),
-
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
-        'MapScreen': (context) => const MapScreen(),
+        'MapScreen': (context) => MapScreen(),
         'ResearchScreen': (context) => const ResearchScreen(),
+        //Condition si connecté
         'ProfilePage': (context) => const ProfilePage(),
+        //Condition si non connecté
         'LoginScreen': (context) => const LoginScreen(),
         'ForgotPassword': (context) => const ForgotPassword(),
         'CreateNewAccount': (context) => const CreateNewAccount(),
       },
-
-
     );
   }
 }

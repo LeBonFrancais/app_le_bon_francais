@@ -9,11 +9,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const BackgroundImage(
-          image: 'assets/images/login_bg.png',
-        ),
         Scaffold(
-          backgroundColor: Colors.transparent,
           bottomNavigationBar: BottomAppBar(
               child: Row(
                 mainAxisSize: MainAxisSize.max,
