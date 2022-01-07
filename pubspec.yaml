@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.0-116.0.dev <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,25 +31,30 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^9.2.0
   html: ^0.15.0
+  latlong2: ^0.8.1
+  flutter_map: ^0.14.0
+  flutter_map_marker_cluster: ^0.4.4
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^1.0.0
-  build_runner: ^2.1.5
+  flutter_lints: ^1.0.4
+  build_runner: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
+  plugin:
+    platforms:
+      android:
+        package: app.loup.geolocation
+        pluginClass: GeolocationPlugin
+      ios:
+        pluginClass: GeolocationPlugin
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

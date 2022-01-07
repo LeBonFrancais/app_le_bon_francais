@@ -1,23 +1,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app_le_bon_francais">
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
    <application
         android:label="Le Bon Francais"
         android:icon="@mipmap/ic_launcher">
 
-       <!-- TODO: Add your Google Maps API key here -->
-       <meta-data android:name="com.google.android.geo.API_KEY"
-           android:value="YOUR-KEY-HERE"/>
-
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
 
-            <meta-data android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyDfTEsZEClBTPhMZY3v18suXbKCjcVRWJ0"/>
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
