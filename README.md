@@ -30,7 +30,7 @@ End with a few screenshots
 
 * **Luís Vieira** - 
 
-See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_francais/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_francais/graphs/contributors) who participated in this project.
 
 ## License
 
