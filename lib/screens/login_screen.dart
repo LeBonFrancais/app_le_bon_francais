@@ -11,90 +11,93 @@ class LoginScreen extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
+          extendBody: true,
           bottomNavigationBar: const BtmAppBar(),
-          floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-
-              colors: [
-                Colors.darkblue,
-                Colors.redDark,
-              ],
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.darkblue,
+                  Colors.redDark,
+                ],
+              ),
             ),
-          ),
-          child:
-            Column(
-              children: [
-                const Flexible(
-                  child: Center(
-                    child: Text(
-                      'Se connecter',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const TextInputField(
-                      icon: Icons.mail,
-                      hint: 'Email',
-                      inputType: TextInputType.emailAddress,
-                      inputAction: TextInputAction.next,
-                    ),
-                    const PasswordInput(
-                      icon: Icons.password,
-                      hint: 'Mot de passe',
-                      inputAction: TextInputAction.done,
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, 'ForgotPassword'),
-                      child: const Text(
-                        'Mot de passe oublié',
-                        style: kBodyText,
+
+            child:
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Flexible(
+                    child: Center(
+                      child: Text(
+                        'Se connecter',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    const RoundedButton(
-                      buttonName: 'Login',
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                  ],
-                ),
-                GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, 'CreateNewAccount'),
-                  child: Container(
-                    child: const Text(
-                      'Créer nouveau compte',
-                      style: kBodyText,
-                    ),
-                    decoration: const BoxDecoration(
-                        border:
-                        Border(bottom: BorderSide(width: 1, color: kWhite))),
                   ),
-                ),
-                const SizedBox(
-                  height: 40,
-                )
-              ],
-            ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const TextInputField(
+                        icon: Icons.mail,
+                        hint: 'Email',
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                      ),
+                      const PasswordInput(
+                        icon: Icons.password,
+                        hint: 'Mot de passe',
+                        inputAction: TextInputAction.done,
+                      ),
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, 'ForgotPassword'),
+                        child: const Text(
+                          'Mot de passe oublié',
+                          style: kBodyText,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      const RoundedButton(
+                        buttonName: 'Login',
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, 'CreateNewAccount'),
+                    child: Container(
+                      child: const Text(
+                        'Créer nouveau compte',
+                        style: kBodyText,
+                      ),
+                      decoration: const BoxDecoration(
+                          border:
+                          Border(bottom: BorderSide(width: 1, color: kWhite))),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Spacer(flex: 1)
+                ],
+
+              ),
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         )
       ],
     );

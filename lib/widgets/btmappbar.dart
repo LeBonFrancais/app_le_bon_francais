@@ -15,7 +15,9 @@ class BtmAppBar extends StatelessWidget {
         children: <Widget>[
           IconButton(icon: const Icon(Icons.home),
             color: Colors.white,
-            onPressed: () {},),
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },),
           IconButton(icon: const Icon(Icons.search), onPressed: () {
             Navigator.pushNamed(context, 'ResearchScreen');
           },),

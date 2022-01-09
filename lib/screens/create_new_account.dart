@@ -14,28 +14,39 @@ class CreateNewAccount extends StatelessWidget {
       children: [
         const BackgroundImage(image: 'assets/images/register_bg.png'),
         Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context, 'LoginScreen');
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: kWhite,
+          body: Container(
+            //margin: ,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+
+                colors: [
+                  Colors.darkblue,
+                  Colors.redDark,
+                ],
               ),
             ),
-            title: const Text(
-              'Nouveau compte',
-              style: kBodyText,
-            ),
-            centerTitle: true,
-          ),
-          backgroundColor: Colors.transparent,
-          body: SingleChildScrollView(
             child: Column(
               children: [
+                AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  leading: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context, 'LoginScreen');
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: kWhite,
+                    ),
+                  ),
+                  title: const Text(
+                    'Nouveau compte',
+                    style: kBodyText,
+                  ),
+                  centerTitle: true,
+                ),
                 SizedBox(
                   height: size.width * 0.1,
                 ),
@@ -104,11 +115,6 @@ class CreateNewAccount extends StatelessWidget {
                       hint: 'Mot de passe *',
                       inputAction: TextInputAction.next,
                     ),
-                    const PasswordInput(
-                      icon: Icons.lock,
-                      hint: 'Confirmer mot de passe *',
-                      inputAction: TextInputAction.done,
-                    ),
                     const SizedBox(
                       height: 25,
                     ),
@@ -125,7 +131,7 @@ class CreateNewAccount extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, 'LoginScreen');
+                            Navigator.pop(context, 'LoginScreen');
                           },
                           child: Text(
                             ' Se connecter',

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_le_bon_francais/pallete.dart';
-import 'package:app_le_bon_francais/widgets/background_image.dart';
 import 'package:app_le_bon_francais/widgets/rounded_button.dart';
 import 'package:app_le_bon_francais/widgets/text_field_input.dart';
 
@@ -13,32 +12,40 @@ class ForgotPassword extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        const BackgroundImage(image: 'assets/images/login_bg.png'),
         Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context,'LoginScreen');
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: kWhite,
+          body: Container(
+              decoration : const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+
+                  colors: [
+                    Colors.darkblue,
+                    Colors.redDark,
+                  ],
+                ),
               ),
-            ),
-            title: const Text(
-              'Mot de passe oublié',
-              style: kBodyText,
-            ),
-            centerTitle: true,
-          ),
-          body: Column(
-            children: [
-              Center(
-                child: Column(
+              child:
+                Column(
                   children: [
+                    AppBar(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      leading: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context,'LoginScreen');
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          color: kWhite,
+                        ),
+                      ),
+                      title: const Text(
+                        'Mot de passe oublié',
+                        style: kBodyText,
+                      ),
+                      centerTitle: true,
+                    ),
                     SizedBox(
                       height: size.height * 0.1,
                     ),
@@ -57,7 +64,7 @@ class ForgotPassword extends StatelessWidget {
                       hint: 'E-mail',
                       inputType: TextInputType.emailAddress,
                       inputAction: TextInputAction.done, key: null,
-                      
+
                     ),
                     const SizedBox(
                       height: 20,
@@ -65,10 +72,8 @@ class ForgotPassword extends StatelessWidget {
                     const RoundedButton(buttonName: 'Envoyer', key: null,)
                   ],
                 ),
-              )
-            ],
-          ),
-        )
+            ),
+        ),
       ],
     );
   }

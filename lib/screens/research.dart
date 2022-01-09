@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -68,6 +70,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
       appBar: AppBar(
         title: const Text("SearchView ListView"),
       ),
+      backgroundColor: Colors.redDark,
       body: Container(
         margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: Column(
@@ -82,12 +85,14 @@ class _ResearchScreenState extends State<ResearchScreen> {
   //Create a SearchView
   Widget _createSearchView() {
     return Container(
-      decoration: BoxDecoration(border: Border.all(width: 1.0)),
+      decoration: BoxDecoration(border: Border.all(width: 1.0),color: Colors.darkblue),
       child: TextField(
+        cursorColor: Colors.white,
         controller: _searchview,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
+          fillColor: Colors.white,
           hintText: "Search",
-          hintStyle: TextStyle(color: Colors.grey[300]),
+          hintStyle: TextStyle(color: Colors.white),
         ),
         textAlign: TextAlign.center,
       ),

@@ -24,11 +24,7 @@ class MapScreenState extends State<ProfilePage>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const BackgroundImage(
-          image: 'assets/images/login_bg.png',
-        ),
         Scaffold(
-          backgroundColor: Colors.transparent,
           bottomNavigationBar: const BtmAppBar(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
@@ -37,7 +33,18 @@ class MapScreenState extends State<ProfilePage>
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation
               .centerDocked,
-          body: Column(
+          body: Container (
+            decoration : const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.darkblue,
+                  Colors.redDark,
+                ],
+              ),
+            ),
+            child:Column(
             children: [
               const Flexible(
                 child: Center(
@@ -88,6 +95,7 @@ class MapScreenState extends State<ProfilePage>
             ],
           ),
         )
+        ),
       ],
     );
   }
