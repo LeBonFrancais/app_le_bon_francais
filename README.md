@@ -1,6 +1,6 @@
 # Le Bon Français
 
-<description
+<description>
 
 ## Getting Started
 
