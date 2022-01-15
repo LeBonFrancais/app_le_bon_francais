@@ -1,11 +1,23 @@
+import 'dart:convert';
+
+import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/btmappbar.dart';
 import 'package:app_le_bon_francais/widgets/card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:http/http.dart' as http;
 
+Future <List<CardWidget>> fetchData() async {
+  final response =
+  await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums'));
+  if (response.statusCode == 200) {
+    List jsonResponse = json.decode(response.body);
+    return jsonResponse.map((data) => CardWidget.fromJson(data)).toList();
+  } else {
+    throw Exception('Unexpected error occured!');
+  }
+}
 
 class HomeScreen extends StatelessWidget {
-
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,34 +37,31 @@ class HomeScreen extends StatelessWidget {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.darkblue,
-                Colors.redDark,
+                Palette.darkBlue,
+                Palette.redDark,
               ],
             ),
           ),
         alignment: Alignment.center,
         child: ListView(
                 children: const [
-
-                  // Model
-                  // CardWidget( libelle:<string>, description: <string>, date: <string>, type: <int>, ),
-
-                  // Valeur de test
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 1,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 1,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 1,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 1,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 1,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
-                  CardWidget(libelle:'Elément 1',description: 'catégorie 1',date: '12-12-2012',type: 0,),
+                  // Exemple de card widget
+                  // CardWidget(idService: ,libelle: '',description: '',date: '',type: ,nom: '',prenom: '',numDep: ,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 0,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 0,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 0,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 0,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
+                  CardWidget(idService: 1,libelle: 'Speedrun',description: 'description',date: '14/01/2022',type: 1,nom: 'Ma',prenom: 'Th',numDep: 34,),
                 ],
               ),
       ),
-
     );
   }
+
+
 }

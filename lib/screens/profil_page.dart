@@ -1,7 +1,5 @@
 import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:app_le_bon_francais/widgets/btmappbar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);

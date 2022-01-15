@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/widgets.dart';
-import 'package:app_le_bon_francais/widgets/btmappbar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../pallete.dart';
+
 // ignore: unused_element, non_constant_identifier_names
 _BottomAppBarWidget () {
   @override
@@ -27,7 +29,7 @@ _BottomAppBarWidget () {
           ],
         ),
         shape: const CircularNotchedRectangle(),
-        color: Colors.redDark
+        color: Palette.redDark
     );
   }
 }

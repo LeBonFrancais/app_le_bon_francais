@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:app_le_bon_francais/pallete.dart';
 import 'package:flutter/material.dart';
 
 class BtmAppBar extends StatelessWidget {
@@ -8,7 +8,7 @@ class BtmAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
-      color: Colors.redDark,
+      color: Palette.redDark,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

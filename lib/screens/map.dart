@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:app_le_bon_francais/widgets/btmappbar.dart';
-//import 'package:geolocation/geolocation.dart';
-//import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatelessWidget {
   MapScreen({Key? key}) : super(key: key);
