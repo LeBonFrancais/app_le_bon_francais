@@ -112,5 +112,4 @@ class CardWidget extends StatelessWidget {
       return 'Proposition';
     }
   }
-
 }
