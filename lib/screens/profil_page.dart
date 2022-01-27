@@ -13,87 +13,83 @@ class MapScreenState extends State<ProfilePage>
   final FocusNode myFocusNode = FocusNode();
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  void initState() => super.initState();
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Scaffold(
-          bottomNavigationBar: const BtmAppBar(),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation
-              .centerDocked,
-          body: Container (
-            decoration : const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Colors.darkblue,
-                  Colors.redDark,
-                ],
-              ),
+            bottomNavigationBar: const BtmAppBar(),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {},
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
             ),
-            child:Column(
-            children: [
-              const Flexible(
-                child: Center(
-                  child: Text(
-                    'Mes\ninformations',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold),
-                  ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            body: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.darkblue,
+                    Colors.redDark,
+                  ],
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  TextInputField(
-                    icon: Icons.account_circle_outlined,
-                    hint: 'Nom',
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
+              child: Column(
+                children: [
+                  const Flexible(
+                    child: Center(
+                      child: Text(
+                        'Mes\ninformations',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                  TextInputField(
-                    icon: Icons.account_circle_outlined,
-                    hint: 'Prénom',
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
-                  ),
-                  TextInputField(
-                    icon: Icons.mail,
-                    hint: 'Email',
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
-                  ),
-                  TextInputField(
-                    icon: Icons.phone,
-                    hint: 'Téléphone',
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  SizedBox(
-                    height: 25,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: const [
+                      TextInputField(
+                        icon: Icons.account_circle_outlined,
+                        hint: 'Nom',
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                      ),
+                      TextInputField(
+                        icon: Icons.account_circle_outlined,
+                        hint: 'Prénom',
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                      ),
+                      TextInputField(
+                        icon: Icons.mail,
+                        hint: 'Email',
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                      ),
+                      TextInputField(
+                        icon: Icons.phone,
+                        hint: 'Téléphone',
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        )
-        ),
+            )),
       ],
     );
   }

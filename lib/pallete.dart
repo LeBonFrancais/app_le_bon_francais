@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const TextStyle kBodyText =
-TextStyle(fontSize: 18, color: Colors.white, height: 1.5);
+    TextStyle(fontSize: 18, color: Colors.white, height: 1.5);
 
 const Color kWhite = Colors.white;
 const Color kBlue = Color(0xff5663ff);
 
 class Palette {
-  static const MaterialColor darkBlue = MaterialColor(_darkBlue0PrimaryValue, <int, Color>{
+  static const MaterialColor darkBlue =
+      MaterialColor(_darkBlue0PrimaryValue, <int, Color>{
     50: Color(0xFFE4E5EA),
     100: Color(0xFFBABFCC),
     200: Color(0xFF8D94AA),
@@ -22,7 +22,8 @@ class Palette {
   });
   static const int _darkBlue0PrimaryValue = 0xFF1A2954;
 
-  static const MaterialColor darkBlue0Accent = MaterialColor(_darkBlue0AccentValue, <int, Color>{
+  static const MaterialColor darkBlue0Accent =
+      MaterialColor(_darkBlue0AccentValue, <int, Color>{
     100: Color(0xFF657EFF),
     200: Color(_darkBlue0AccentValue),
     400: Color(0xFF0029FE),
@@ -30,7 +31,8 @@ class Palette {
   });
   static const int _darkBlue0AccentValue = 0xFF3253FF;
 
-  static const MaterialColor redDark = MaterialColor(_redDark0PrimaryValue, <int, Color>{
+  static const MaterialColor redDark =
+      MaterialColor(_redDark0PrimaryValue, <int, Color>{
     50: Color(0xFFF6E6E6),
     100: Color(0xFFE7C0C0),
     200: Color(0xFFD89797),
@@ -44,7 +46,8 @@ class Palette {
   });
   static const int _redDark0PrimaryValue = 0xFFB02E2E;
 
-  static const MaterialColor redDark0Accent = MaterialColor(_redDark0AccentValue, <int, Color>{
+  static const MaterialColor redDark0Accent =
+      MaterialColor(_redDark0AccentValue, <int, Color>{
     100: Color(0xFFFFBABA),
     200: Color(_redDark0AccentValue),
     400: Color(0xFFFF5454),
