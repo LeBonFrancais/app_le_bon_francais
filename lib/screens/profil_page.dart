@@ -21,13 +21,6 @@ class MapScreenState extends State<ProfilePage>
       children: [
         Scaffold(
             bottomNavigationBar: const BtmAppBar(),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {},
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
             body: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -58,13 +51,13 @@ class MapScreenState extends State<ProfilePage>
                       TextInputField(
                         icon: Icons.account_circle_outlined,
                         hint: 'Nom',
-                        inputType: TextInputType.emailAddress,
+                        inputType: TextInputType.text,
                         inputAction: TextInputAction.next,
                       ),
                       TextInputField(
                         icon: Icons.account_circle_outlined,
                         hint: 'Prénom',
-                        inputType: TextInputType.emailAddress,
+                        inputType: TextInputType.text,
                         inputAction: TextInputAction.next,
                       ),
                       TextInputField(
@@ -76,7 +69,7 @@ class MapScreenState extends State<ProfilePage>
                       TextInputField(
                         icon: Icons.phone,
                         hint: 'Téléphone',
-                        inputType: TextInputType.emailAddress,
+                        inputType: TextInputType.phone,
                         inputAction: TextInputAction.next,
                       ),
                       SizedBox(

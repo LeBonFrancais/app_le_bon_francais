@@ -7,8 +7,10 @@
 
 
    <application
-        android:label="Le Bon Francais"
-        android:icon="@mipmap/ic_launcher">
+       android:useCleartextTraffic="true"
+       android:label="Le Bon Francais"
+       android:icon="@mipmap/ic_launcher"
+       >
 
         <activity
             android:name=".MainActivity"

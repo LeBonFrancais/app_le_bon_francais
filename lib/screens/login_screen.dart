@@ -51,6 +51,7 @@ class LoginScreen extends StatelessWidget {
                       const PasswordInput(
                         icon: Icons.password,
                         hint: 'Mot de passe',
+                        inputType: TextInputType.visiblePassword,
                         inputAction: TextInputAction.done,
                       ),
                       GestureDetector(
@@ -91,12 +92,6 @@ class LoginScreen extends StatelessWidget {
 
               ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         )
       ],
     );
