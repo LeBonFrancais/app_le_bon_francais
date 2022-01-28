@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class MailScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _MailScreenState extends State<MailScreen> {
     required String toEmail,
     required String subject,
     required String message,
-}) async {
+  }) async {
     final url =
         'mailto:$toEmail?subject=${Uri.encodeFull(subject)}&body=${Uri.encodeFull(message)}';
 

@@ -126,9 +126,9 @@ class CardWidget extends StatelessWidget {
 
   _getColor() {
     if (type == 0) {
-      return Colors.darkblue;
+      return Palette.darkBlue;
     } else {
-      return Colors.redDark;
+      return Palette.redDark;
     }
   }
 

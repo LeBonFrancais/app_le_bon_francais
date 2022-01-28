@@ -1,3 +1,4 @@
+import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -18,11 +19,11 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: GoogleMap(
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-        initialCameraPosition: _initialCameraPosition,
-      )
+        bottomNavigationBar: BtmAppBar(),
+        body:  GoogleMap(
+          myLocationButtonEnabled: false,
+          initialCameraPosition: _initialCameraPosition,
+        )
     );
   }
 }

@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app_le_bon_francais">
 
@@ -7,7 +9,7 @@
 
 
    <application
-       android:useCleartextTraffic="true"
+       android:usesCleartextTraffic="true"
        android:label="Le Bon Francais"
        android:icon="@mipmap/ic_launcher"
        >
@@ -38,7 +40,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-
-            <meta-data android:name="com.my.app.applebonfrancais" android:value="AIzaSyDfTEsZEClBTPhMZY3v18suXbKCjcVRWJ0" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDfTEsZEClBTPhMZY3v18suXbKCjcVRWJ0" />
     </application>
 </manifest>

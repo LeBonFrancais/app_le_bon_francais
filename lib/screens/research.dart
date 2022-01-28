@@ -1,3 +1,4 @@
+import 'package:app_le_bon_francais/pallete.dart';
 import 'package:flutter/material.dart';
 
 class ResearchScreen extends StatefulWidget {
@@ -67,7 +68,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
       appBar: AppBar(
         title: const Text("SearchView ListView"),
       ),
-      backgroundColor: Colors.redDark,
+      backgroundColor: Palette.redDark,
       body: Container(
         margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: Column(
@@ -82,7 +83,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
   //Create a SearchView
   Widget _createSearchView() {
     return Container(
-      decoration: BoxDecoration(border: Border.all(width: 1.0),color: Colors.darkblue),
+      decoration: BoxDecoration(border: Border.all(width: 1.0),color: Palette.darkBlue),
       child: TextField(
         cursorColor: Colors.white,
         controller: _searchview,

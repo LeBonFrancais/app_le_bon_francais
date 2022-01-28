@@ -19,8 +19,8 @@ class ForgotPassword extends StatelessWidget {
                   end: Alignment.bottomLeft,
 
                   colors: [
-                    Colors.darkblue,
-                    Colors.redDark,
+                    Palette.darkBlue,
+                    Palette.redDark,
                   ],
                 ),
               ),

@@ -27,7 +27,16 @@ _BottomAppBarWidget() {
             IconButton(
               icon: const Icon(Icons.map),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, 'MapScreen');
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.mail),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context, 'MailScreen');
+              },
             ),
             IconButton(
               icon: const Icon(Icons.account_circle_outlined),
@@ -38,6 +47,7 @@ _BottomAppBarWidget() {
           ],
         ),
         shape: const CircularNotchedRectangle(),
-        color: Palette.redDark);
+        color: Palette.redDark
+    );
   }
 }

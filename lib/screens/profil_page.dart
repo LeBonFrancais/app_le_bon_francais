@@ -1,3 +1,4 @@
+import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +28,8 @@ class MapScreenState extends State<ProfilePage>
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Colors.darkblue,
-                    Colors.redDark,
+                    Palette.darkBlue,
+                    Palette.redDark,
                   ],
                 ),
               ),
