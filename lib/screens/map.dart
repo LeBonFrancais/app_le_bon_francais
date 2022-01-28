@@ -1,63 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:app_le_bon_francais/widgets/btmappbar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapScreen extends StatelessWidget {
-  MapScreen({Key? key}) : super(key: key);
 
-  final MapController controller = MapController();
+class MapScreen extends StatefulWidget {
+  const MapScreen({ Key? key }) : super(key: key);
 
-/*  getPermission() async{
-    final GeolocationResult result = await Geolocation.requestLocationPermission(
-      permission: const LocationPermission(
-        android: LocationPermissionAndroid.fine,
-        ios: LocationPermissionIOS.always)
-    );
-    return result;
-  }
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
 
-  getLocation() {
-    return getPermission().then((result) async{
-      if (result.isSuccessful){
-        // ignore: unused_local_variable
-        final coords = Geolocation.currentLocation(accuracy: LocationAccuracy.best);
-      }
-    });
-  }
+class _MapScreenState extends State<MapScreen> {
+  static const _initialCameraPosition = CameraPosition(
+      target: LatLng(47.454575, -0.559379),
+      zoom: 11.5
+   );
 
-  buildMap(){
-    getLocation().then((response) {
-      if (response.isSuccessful) {
-        response.listen((value) {
-          controller.move(LatLng(value.location.latitude, value.location.longitude),15.0);
-        });
-      }
-    });
-  }
-*/
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const BtmAppBar(),
-        /*body:  FlutterMap(
-          mapController: controller,
-          options: MapOptions(zoom: 10.0),
-          layers: [
-            TileLayerOptions(
-              minZoom: 1,
-              maxZoom: 50,
-              backgroundColor: Colors.black,
-              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-              subdomains: ['a', 'b', 'c'],
-            ),
-          ]
-      ),*/
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    return const Scaffold(
+      body: GoogleMap(
+        myLocationButtonEnabled: false,
+        zoomControlsEnabled: false,
+        initialCameraPosition: _initialCameraPosition,
+      )
     );
   }
 }

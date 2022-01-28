@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
-        'MapScreen': (context) => MapScreen(),
+        'MapScreen': (context) => const MapScreen(),
         'ResearchScreen': (context) => const ResearchScreen(),
         //Condition si connecté
         'ProfilePage': (context) => const ProfilePage(),
