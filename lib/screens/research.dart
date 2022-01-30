@@ -66,7 +66,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SearchView ListView"),
+        title: const Text("Liste de services"),
       ),
       backgroundColor: Palette.redDark,
       body: Container(

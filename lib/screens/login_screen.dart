@@ -10,6 +10,7 @@ class LoginScreen extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
+          resizeToAvoidBottomInset: false,
           extendBody: true,
           bottomNavigationBar: const BtmAppBar(),
           body: Container(
@@ -51,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                       const PasswordInput(
                         icon: Icons.password,
                         hint: 'Mot de passe',
-                        inputType: TextInputType.visiblePassword,
+                        inputType: TextInputType.text,
                         inputAction: TextInputAction.done,
                       ),
                       GestureDetector(

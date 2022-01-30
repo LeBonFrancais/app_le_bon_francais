@@ -10,19 +10,33 @@ class MailScreen extends StatefulWidget {
 }
 
 class _MailScreenState extends State<MailScreen> {
+
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.all(32),
-      child: ElevatedButton(
-        child: const Text('Make mail'),
-        onPressed: () => launchEmail(
-          toEmail: 'lebonfrancais.service@gmail.com',
-          subject: '',
-          message: '',
-        )
-      )
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        AppBar(
+          title: const Text("Contacter support"),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(32),
+              child: ElevatedButton(
+                child: const Text('Make mail'),
+                onPressed: () => launchEmail(
+                  toEmail: 'lebonfrancais.service@gmail.com',
+                  subject: '',
+                  message: '',
+                )
+              )
+            ),
+          ]
+      )],
     );
   }
 
@@ -32,10 +46,12 @@ class _MailScreenState extends State<MailScreen> {
     required String message,
   }) async {
     final url =
-        'mailto:$toEmail?subject=${Uri.encodeFull(subject)}&body=${Uri.encodeFull(message)}';
+        'mailto:$toEmail';
 
     if (await canLaunch(url)){
-      await launch(url);
+      await launch(
+          url,
+      );
     }
   }
 
