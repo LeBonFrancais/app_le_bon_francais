@@ -1,5 +1,7 @@
 # Le Bon Français
 
+School project, still in development
+
 <description>
 
 ## Getting Started
