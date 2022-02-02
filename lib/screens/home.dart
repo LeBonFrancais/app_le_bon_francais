@@ -24,7 +24,6 @@ class HomeScreen extends StatefulWidget {
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
-
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -32,62 +31,41 @@ class _HomeScreenState extends State<HomeScreen> {
   Color typeS = Palette.redDark;
   final _searchview = TextEditingController();
 
-  List<String>? _nebulae;
-
-  @override
-  void initState() {
-    super.initState();
-    futureData = fetchData();
-    _nebulae = <String>[];
-    _nebulae = [
-      "Mathys",
-      "Baptiste",
-      "Thaïs",
-      "Tanguy",
-      "Louis",
-      "Théo",
-      "Mélissa",
-      "Ant",
-      "Bernad 68",
-      "Flame",
-      "Eagle",
-      "Horse Head",
-      "Elephant's Trunk",
-      "Butterfly"
-    ];
-    _nebulae!.sort();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BtmAppBar(),
-      extendBody: true,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Palette.darkBlue,
-              Palette.redDark,
-            ],
-          ),
-        ),
-        alignment: Alignment.center,
-        child: Stack(
-          children: [
-            _createSearchView(),
-            _serviceListView()
-          ],
-        )
-      )
-    );
+        bottomNavigationBar: const BtmAppBar(),
+        extendBody: true,
+        body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Palette.darkBlue,
+                  Palette.redDark,
+                ],
+              ),
+            ),
+            alignment: Alignment.center,
+            child: Column(
+              //_createSearchView(context) : Barre de recherche
+              //_serviceListView() : Liste des services - Cercle rafraishissement si pas de données
+              children: [_createSearchView(context), _serviceListView()],
+            )));
   }
 
-  Widget _createSearchView() {
+  Widget _createSearchView(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(border: Border.all(width: 1.0),color: Palette.darkBlue),
+      margin: EdgeInsets.symmetric(vertical: size.height * 0.1),
+      height: size.height * 0.06,
+      width: size.width * 0.9,
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.0),
+        color: Palette.darkBlue,
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: TextField(
         cursorColor: Colors.white,
         controller: _searchview,
@@ -102,114 +80,115 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _serviceListView() {
-    return FutureBuilder <List<CardWidget>>(
-      future: futureData,
-      builder: (context, snapshot) {
-        if (snapshot.hasData){
-          List<CardWidget>? data = snapshot.data;
-          return ListView.builder(
-              itemCount: data?.length,
-              itemBuilder: (BuildContext context, int index) {
-
-                if (data![index].type == 1) {
-                  typeS = Palette.darkBlue;
-                }
-
-                return Container(
-                    margin: const EdgeInsets.all(0.0),
-                    padding: const EdgeInsets.all(5.0),
-                    color: Colors.transparent,
-                    child: FractionallySizedBox(
-                      widthFactor: 0.9,
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(13.0),
-                        ),
-                        color: typeS,
-                        elevation: 10,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            ListTile(
-                              leading: const Icon(Icons.accessible_forward_sharp, size: 50),
-                              title: Text(
-                                  data[index].libelle,
-                                  style: const TextStyle(color: Colors.white)
+    fetchData();
+    return FutureBuilder<List<CardWidget>>(
+        future: futureData,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<CardWidget>? data = snapshot.data;
+            return ListView.builder(
+                itemCount: data?.length,
+                itemBuilder: (BuildContext context, int index) {
+                  if (data![index].type == 1) {
+                    typeS = Palette.darkBlue;
+                  }
+                  return Container(
+                      margin: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(5.0),
+                      color: Colors.transparent,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.9,
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(13.0),
+                          ),
+                          color: typeS,
+                          elevation: 10,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              ListTile(
+                                leading: const Icon(
+                                    Icons.accessible_forward_sharp,
+                                    size: 50),
+                                title: Text(data[index].libelle,
+                                    style:
+                                        const TextStyle(color: Colors.white)),
+                                subtitle: Text(data[index].description,
+                                    style:
+                                        const TextStyle(color: Colors.white)),
                               ),
-                              subtitle: Text(
-                                  data[index].description,
-                                  style: const TextStyle(color: Colors.white)
-                              ),
-                            ),
-                            ButtonTheme(
-                              child: ButtonBar(
-                                children: <Widget>[
-                                  TextButton(
-                                    child: const Text('Voir +',
-                                        style: TextStyle(color: Colors.white)
-                                    ),
-                                    onPressed: () {
-                                      Alert(
-                                        context: context,
-                                        title: "Titre",
-                                        desc: "Description",
-                                        buttons: [
-                                          DialogButton(
-                                              child: const Text(
-                                                "Reserver",
-                                                style: TextStyle(
-                                                    color: Colors.white, fontSize: 20
+                              ButtonTheme(
+                                child: ButtonBar(
+                                  children: <Widget>[
+                                    TextButton(
+                                      child: const Text('Voir +',
+                                          style:
+                                              TextStyle(color: Colors.white)),
+                                      onPressed: () {
+                                        Alert(
+                                          context: context,
+                                          title: "Titre",
+                                          desc: "Description",
+                                          buttons: [
+                                            DialogButton(
+                                                child: const Text(
+                                                  "Reserver",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 20),
                                                 ),
+                                                onPressed: () {},
+                                                gradient: const LinearGradient(
+                                                    colors: [
+                                                      Palette.redDark,
+                                                      Palette.darkBlue
+                                                    ])),
+                                            DialogButton(
+                                              child: const Text(
+                                                "Fermer",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 20),
                                               ),
-                                              onPressed: () {},
-                                              gradient: const LinearGradient(
-                                                  colors: [
-                                                    Palette.redDark, Palette.darkBlue
-                                                  ]
-                                              )
-                                          ),
-                                          DialogButton(
-                                            child: const Text(
-                                              "Fermer",
-                                              style:
-                                              TextStyle(color: Colors.white, fontSize: 20),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              color: const Color.fromRGBO(
+                                                  0, 179, 20, 1.0),
                                             ),
-                                            onPressed: () => Navigator.pop(context),
-                                            color: const Color.fromRGBO(0, 179, 20, 1.0),
-                                          ),
-                                        ],
-                                      ).show();
-                                    },
-                                  ),
-                                ],
+                                          ],
+                                        ).show();
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                );
-              });
-        } else if (snapshot.hasError) {
-          return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children : [
-                IconButton(
-                  icon: const Icon(Icons.refresh,color: Colors.white,),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                ),
-                const Text(
-                  'Refresh',
-                  style: kBodyText,
-                )
-              ]
-          );
-        }
-        // By default show a loading spinner.
-        return const CircularProgressIndicator(color: Colors.amber);
-      }
-    );
+                      ));
+                });
+          } else if (snapshot.hasError) {
+            return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.refresh,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                  ),
+                  const Text(
+                    'Refresh',
+                    style: kBodyText,
+                  )
+                ]);
+          }
+          // By default show a loading spinner.
+          return const CircularProgressIndicator(color: Colors.amber);
+        });
   }
 }
