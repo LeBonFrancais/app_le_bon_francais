@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_le_bon_francais/pallete.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,16 +28,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
+        backgroundColor: Palette.darkBlue,
         extendBody: true,
         body: Container(
           alignment: Alignment.center,
-          child: Column(children: const [
-            FlutterLogo(
-              size: 100.0,
-            ),
-            LinearProgressIndicator()
-          ]),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image(
+                  image: const AssetImage('assets/images/logo.png'),
+                  width: size.width * 0.5,
+                ),
+                const LinearProgressIndicator()
+              ]),
         ));
   }
 }
