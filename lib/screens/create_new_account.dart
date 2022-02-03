@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CreateNewAccount extends StatelessWidget {
   const CreateNewAccount({Key? key}) : super(key: key);
@@ -13,8 +14,8 @@ class CreateNewAccount extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: Container(
+          resizeToAvoidBottomInset: false,
+          body: Container(
             //margin: ,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -117,7 +118,7 @@ class CreateNewAccount extends StatelessWidget {
                     const SizedBox(
                       height: 25,
                     ),
-                    const RoundedButton(buttonName: 'S\'enregistrer'),
+                    _button(context),
                     const SizedBox(
                       height: 30,
                     ),
@@ -150,6 +151,28 @@ class CreateNewAccount extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget _button(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      height: size.height * 0.08,
+      width: size.width * 0.8,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Palette.darkBlue,
+      ),
+      child: TextButton(
+        onPressed: () {
+          Fluttertoast.showToast(
+              msg: 'Ce composant est en cours de développement !');
+        },
+        child: Text(
+          'S\'enregistrer',
+          style: kBodyText.copyWith(fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }
