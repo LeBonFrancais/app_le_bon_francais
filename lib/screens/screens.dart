@@ -6,3 +6,4 @@ export 'home.dart';
 export 'research.dart';
 export 'mail_screen.dart';
 export 'profil_page.dart';
+export 'splash_screen.dart';

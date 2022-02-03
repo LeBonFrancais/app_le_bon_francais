@@ -17,18 +17,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
       title: 'Le Bon Francais',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Palette.darkBlue, backgroundColor: Colors.blueGrey),
-      initialRoute: '/',
+      initialRoute: '/SplashScreen',
       routes: {
+        '/SplashScreen': (context) => const SplashScreen(),
         '/': (context) => const HomeScreen(),
         'MapScreen': (context) => const MapScreen(),
         'ResearchScreen': (context) => const ResearchScreen(),
-        'MailScreen' : (context) => const MailScreen(),
+        'MailScreen': (context) => const MailScreen(),
         //Condition si connecté
         'ProfilePage': (context) => const ProfilePage(),
         //Condition si non connecté
