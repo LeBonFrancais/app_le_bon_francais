@@ -2,27 +2,24 @@
 
 School project, still in development
 
-<description>
+The goal: an application that connects people who are geographically close. It allows you to consult the different services: requests and proposals for assistance. The reservation will be made via the website developed later.
 
 ## Getting Started
 
-<how to install>
-
 ### Prerequisites
 
-<required>
+  SDK Flutter : <how to install>
 
 ### How to use
 
-<desc>
-
-End with a few screenshots
-
+  git clone : to get the project
+  
+  pub get : to get referencies
+  
 ## Built with
 
-* <language used>
-
-* <library>
+* Dart 
+* XML
 
 ## Authors
 
@@ -32,9 +29,10 @@ See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_
 
 ## License
 
-This project is not licensed. It's a school project.
+  This project is not licensed. 
+  It's a school project.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
+* Development with dart
+* API : Laravel
