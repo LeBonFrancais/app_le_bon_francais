@@ -25,11 +25,12 @@ The goal: an application that connects people who are geographically close. It a
 ## Built with
 
 * Dart 
-* XML
-
+* Visual Studio Code
+  
 ## Authors
 
-* **MataRedDev**
+* [**MataRedDev**](https://github.com/MataReDev)
+* [**thaisbrun**](https://github.com/thaisbrun)
 
 See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_francais/graphs/contributors) who participated in this project.
 
@@ -41,4 +42,5 @@ See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_
 ## Acknowledgments
 
 * Development with dart
-* API : Laravel
+* Deploy an app on Android
+* Make an API with framework : laravel
