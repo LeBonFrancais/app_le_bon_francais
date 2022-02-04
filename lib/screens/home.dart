@@ -58,10 +58,24 @@ class _HomeScreenState extends State<HomeScreen> {
               //_createSearchView(context) : Barre de recherche
               //_serviceListView() : Liste des services - Cercle rafraishissement si pas de données
               children: [
+                _titre(context),
                 _createSearchView(context),
                 _serviceListView(context),
               ],
             )));
+  }
+
+  Widget _titre(BuildContext context) {
+    //Size size = MediaQuery.of(context).size;
+    return const Flexible(
+      child: Center(
+        child: Text(
+          'Le Bon Français',
+          style: TextStyle(
+              color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 
   Widget _createSearchView(BuildContext context) {
