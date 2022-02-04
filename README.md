@@ -18,7 +18,9 @@ The goal: an application that connects people who are geographically close. It a
 
   git clone : to get the project
   
-  pub get : to get referencies
+  Reload your IDE to update the path 
+  
+  flutter pub get : to get referencies
   
 ## Built with
 
