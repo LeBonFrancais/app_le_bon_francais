@@ -29,8 +29,9 @@ class _MyAppState extends State<MyApp> {
         '/SplashScreen': (context) => const SplashScreen(),
         '/': (context) => const HomeScreen(),
         'MapScreen': (context) => const MapScreen(),
-        'ResearchScreen': (context) => const ResearchScreen(),
+        'NewService': (context) => const NewService(),
         'MailScreen': (context) => const MailScreen(),
+        'WebViewApp': (context) => const WebViewApp(),
         //Condition si connecté
         'ProfilePage': (context) => const ProfilePage(),
         //Condition si non connecté

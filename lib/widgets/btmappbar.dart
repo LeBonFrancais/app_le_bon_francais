@@ -14,30 +14,39 @@ class BtmAppBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          IconButton(icon: const Icon(Icons.home),
+          IconButton(
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.pushNamed(context, '/');
-            },),
-          IconButton(icon: const Icon(Icons.search), onPressed: () {
-            Navigator.pushNamed(context, 'ResearchScreen');
-          },),
-          IconButton(icon: const Icon(Icons.map), onPressed: () {
-            Navigator.pushNamed(context, 'MapScreen');
-          },),
+            },
+          ),
           IconButton(
-            icon: const Icon(Icons.mail),
+            icon: const Icon(Icons.map),
+            onPressed: () {
+              Navigator.pushNamed(context, 'MapScreen');
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.add_box_outlined),
+            onPressed: () {
+              Navigator.pushNamed(context, 'NewService');
+            },
+          ),
+          IconButton(
+              icon: const Icon(Icons.mail),
               onPressed: () {
                 launchEmail(
                   toEmail: 'lebonfrancais.service@gmail.com',
                   subject: '',
                   message: '',
                 );
-              }
-            ),
+              }),
           IconButton(
-            icon: const Icon(Icons.account_circle_outlined), onPressed: () {
-            Navigator.pushNamed(context, 'LoginScreen');
-          },),
+            icon: const Icon(Icons.account_circle_outlined),
+            onPressed: () {
+              Navigator.pushNamed(context, 'LoginScreen');
+            },
+          ),
         ],
       ),
     );
@@ -48,10 +57,9 @@ class BtmAppBar extends StatelessWidget {
     required String subject,
     required String message,
   }) async {
-    final url =
-        'mailto:$toEmail';
+    final url = 'mailto:$toEmail';
 
-    if (await canLaunch(url)){
+    if (await canLaunch(url)) {
       await launch(
         url,
       );

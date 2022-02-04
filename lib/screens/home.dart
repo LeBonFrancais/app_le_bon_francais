@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         bottomNavigationBar: const BtmAppBar(),
         extendBody: true,
@@ -58,7 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
               //_createSearchView(context) : Barre de recherche
               //_serviceListView() : Liste des services - Cercle rafraishissement si pas de données
               children: [
-                _titre(context),
+                Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.075),
+                  child: _titre(context),
+                ),
                 _createSearchView(context),
                 _serviceListView(context),
               ],
@@ -130,17 +134,20 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
+                                  //Card of a service
                                   ListTile(
-                                    leading: const Icon(
-                                        Icons.accessible_forward_sharp,
-                                        size: 50),
-                                    title: Text(data[index].libelle,
-                                        style: const TextStyle(
-                                            color: Colors.white)),
-                                    subtitle: Text(data[index].description,
-                                        style: const TextStyle(
-                                            color: Colors.white)),
+                                    title: Text(
+                                      data[index].libelle,
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
+                                    subtitle: Text(
+                                      data[index].description,
+                                      style:
+                                          const TextStyle(color: Colors.white),
+                                    ),
                                   ),
+                                  //Button
                                   ButtonTheme(
                                     child: ButtonBar(
                                       children: <Widget>[
@@ -149,10 +156,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                               style: TextStyle(
                                                   color: Colors.white)),
                                           onPressed: () {
+                                            //Pop up of this service for more infos
                                             Alert(
                                               context: context,
-                                              title: "Titre",
-                                              desc: "Description",
+                                              title: data[index].libelle,
+                                              desc: data[index].description,
                                               buttons: [
                                                 DialogButton(
                                                     child: const Text(
@@ -161,7 +169,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           color: Colors.white,
                                                           fontSize: 20),
                                                     ),
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      //Button to open the website to reserve it
+                                                      Navigator.pushNamed(
+                                                          context,
+                                                          'WebViewApp');
+                                                    },
                                                     gradient:
                                                         const LinearGradient(
                                                             colors: [
@@ -176,6 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         fontSize: 20),
                                                   ),
                                                   onPressed: () =>
+                                                      //Button to back on the list
                                                       Navigator.pop(context),
                                                   color: const Color.fromRGBO(
                                                       0, 179, 20, 1.0),
@@ -202,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.popAndPushNamed(context, '/');
                     },
                   ),
                   const Text(

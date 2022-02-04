@@ -10,7 +10,7 @@ class CardWidget {
     required this.nom,
     required this.prenom,
     required this.numDep,
-  }) ;
+  });
 
   final int idService;
   final String libelle;
