@@ -12,7 +12,7 @@ The goal: an application that connects people who are geographically close. It a
   
  1.  Download the .zip file
  2.  Unzip it
- 3.  Add the path to the flutter folder unzipped to your env ( [folder]\flutter\bin )
+ 3.  Add the path to the flutter sdk unzipped to your env ( [folder]\flutter\bin )
 
 ### How to install the project
 
