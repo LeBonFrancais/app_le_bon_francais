@@ -8,9 +8,13 @@ The goal: an application that connects people who are geographically close. It a
 
 ### Prerequisites
 
-  SDK Flutter : <how to install>
+  Install SDK Flutter : https://docs.flutter.dev/development/tools/sdk/releases
+  
+  1 - Download the .zip file
+  2 - Unzip it
+  3 - Add the path to the flutter folder unzipped to your env ( <folder>\flutter\bin )
 
-### How to use
+### How to install
 
   git clone : to get the project
   
