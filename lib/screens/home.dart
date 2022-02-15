@@ -71,14 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _titre(BuildContext context) {
     //Size size = MediaQuery.of(context).size;
-    return const Flexible(
-      child: Center(
-        child: Text(
-          'Le Bon Français',
-          style: TextStyle(
-              color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
-        ),
-      ),
+    return const Text(
+      'Le Bon Français',
+      style: TextStyle(
+          color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
     );
   }
 
@@ -86,11 +82,11 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: size.height * 0.05),
-      height: size.height * 0.06,
+      height: size.height * 0.075,
       width: size.width * 0.9,
       decoration: BoxDecoration(
         border: Border.all(width: 1.0),
-        color: Palette.darkBlue,
+        color: Palette.darkBlue[400],
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextField(
@@ -142,7 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           const TextStyle(color: Colors.white),
                                     ),
                                     subtitle: Text(
-                                      data[index].description,
+                                      data[index].description +
+                                          '\n' +
+                                          data[index].numDep +
+                                          '-' +
+                                          data[index].nomDep,
                                       style:
                                           const TextStyle(color: Colors.white),
                                     ),

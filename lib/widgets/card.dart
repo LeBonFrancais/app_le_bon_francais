@@ -10,6 +10,7 @@ class CardWidget {
     required this.nom,
     required this.prenom,
     required this.numDep,
+    required this.nomDep,
   });
 
   final int idService;
@@ -20,6 +21,7 @@ class CardWidget {
   final String nom;
   final String prenom;
   final String numDep;
+  final String nomDep;
 
   factory CardWidget.fromJson(Map<String, dynamic> json) {
     return CardWidget(
@@ -31,6 +33,7 @@ class CardWidget {
       nom: json['NOM'],
       prenom: json['PRENOM'],
       numDep: json['NUMERO_DEP'],
+      nomDep: json['NUM_DEP'],
     );
   }
 }
