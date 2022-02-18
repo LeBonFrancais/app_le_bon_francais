@@ -77,9 +77,12 @@ class _NewServiceState extends State<NewService> {
                   height: size.height * 0.15,
                   width: size.width * 0.8,
                   child: Column(
+                    //Radio button pour choisir entre recherche ou proposition
                     children: <Radio>[
+                      /*
                       RadioButtonInputElement(),
                       RadioButtonInputElement(),
+                      */
                     ],
                   ),
                 ),
