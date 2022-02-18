@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class NewService extends StatefulWidget {
 class _NewServiceState extends State<NewService> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       bottomNavigationBar: const BtmAppBar(),
       extendBody: true,
@@ -62,19 +65,23 @@ class _NewServiceState extends State<NewService> {
                   inputAction: TextInputAction.next,
                 ),
                 const TextInputField(
-                  icon: Icons.architecture_sharp,
+                  icon: Icons.blur_circular_outlined,
                   hint: 'Departement',
-                  inputType: TextInputType.text,
-                  inputAction: TextInputAction.next,
-                ),
-                const TextInputField(
-                  icon: Icons.work_outlined,
-                  hint: 'Demande ou Proposition',
                   inputType: TextInputType.text,
                   inputAction: TextInputAction.next,
                 ),
                 const SizedBox(
                   height: 25,
+                ),
+                SizedBox(
+                  height: size.height * 0.15,
+                  width: size.width * 0.8,
+                  child: Column(
+                    children: <Radio>[
+                      RadioButtonInputElement(),
+                      RadioButtonInputElement(),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 25,
