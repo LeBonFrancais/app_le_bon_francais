@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class BackgroundImage extends StatelessWidget {
   const BackgroundImage({
     Key? key,
@@ -23,7 +22,8 @@ class BackgroundImage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage(image!),
             fit: BoxFit.cover,
-            colorFilter: const ColorFilter.mode(Colors.black54, BlendMode.darken),
+            colorFilter:
+                const ColorFilter.mode(Colors.black54, BlendMode.darken),
           ),
         ),
       ),

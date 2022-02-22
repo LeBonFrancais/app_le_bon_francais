@@ -1,4 +1,7 @@
+// This screen is an example for a research
+
 import 'package:app_le_bon_francais/pallete.dart';
+import 'package:app_le_bon_francais/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ResearchScreen extends StatefulWidget {
@@ -64,26 +67,56 @@ class _ResearchScreenState extends State<ResearchScreen> {
 //Build our Home widget
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Liste de services"),
-      ),
-      backgroundColor: Palette.redDark,
-      body: Container(
-        margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-        child: Column(
-          children: <Widget>[
-            _createSearchView(),
-            _firstSearch ? _createListView() : _performSearch()
-          ],
+        bottomNavigationBar: const BtmAppBar(),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Palette.darkBlue,
+                Palette.redDark,
+              ],
+            ),
+          ),
+          alignment: Alignment.center,
+          child: Container(
+            margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.05),
+                  child: _titre(context),
+                ),
+                _createSearchView(context),
+                _firstSearch ? _createListView() : _performSearch()
+              ],
+            ),
+          ),
+        ));
+  }
+
+  Widget _titre(BuildContext context) {
+    return const Flexible(
+      child: Center(
+        child: Text(
+          'Recherche',
+          style: TextStyle(
+              color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
         ),
       ),
     );
   }
+
   //Create a SearchView
-  Widget _createSearchView() {
+  Widget _createSearchView(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(border: Border.all(width: 1.0),color: Palette.darkBlue),
+      decoration: BoxDecoration(
+          border: Border.all(width: 1.0), color: Palette.darkBlue),
+      margin: EdgeInsets.only(top: size.height * 0.03),
       child: TextField(
         cursorColor: Colors.white,
         controller: _searchview,
@@ -96,6 +129,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
       ),
     );
   }
+
   //Create a ListView widget
   Widget _createListView() {
     return Flexible(
@@ -113,6 +147,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
           }),
     );
   }
+
   //Perform actual search
   Widget _performSearch() {
     _filterList = <String>[];
@@ -125,6 +160,7 @@ class _ResearchScreenState extends State<ResearchScreen> {
     }
     return _createFilteredListView();
   }
+
   //Create the Filtered ListView
   Widget _createFilteredListView() {
     return Flexible(

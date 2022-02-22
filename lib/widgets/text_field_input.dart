@@ -26,7 +26,7 @@ class TextInputField extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.grey[500],
           borderRadius: BorderRadius.circular(16),
-        ),  
+        ),
         child: Center(
           child: TextField(
             decoration: InputDecoration(

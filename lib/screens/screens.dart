@@ -7,3 +7,5 @@ export 'research.dart';
 export 'mail_screen.dart';
 export 'profil_page.dart';
 export 'splash_screen.dart';
+export 'service_web_screen.dart';
+export 'new_service_screen.dart';
