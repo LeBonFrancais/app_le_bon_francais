@@ -33,7 +33,7 @@ class CardWidget {
       nom: json['NOM'],
       prenom: json['PRENOM'],
       numDep: json['NUMERO_DEP'],
-      nomDep: json['NUM_DEP'],
+      nomDep: json['NOM_DEP'],
     );
   }
 }

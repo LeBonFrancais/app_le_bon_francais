@@ -12,6 +12,7 @@ class CreateNewAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Scaffold(
           resizeToAvoidBottomInset: false,
@@ -47,48 +48,21 @@ class CreateNewAccount extends StatelessWidget {
                   ),
                   centerTitle: true,
                 ),
-                SizedBox(
-                  height: size.width * 0.1,
-                ),
-                Stack(
-                  children: [
-                    Center(
-                      child: ClipOval(
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                          child: CircleAvatar(
-                            radius: size.width * 0.14,
-                            backgroundColor: Palette.redDark,
-                            child: Icon(
-                              Icons.account_circle_outlined,
-                              color: kWhite,
-                              size: size.width * 0.1,
-                            ),
-                          ),
+                Center(
+                  child: ClipOval(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                      child: CircleAvatar(
+                        radius: size.width * 0.10,
+                        backgroundColor: Palette.redDark,
+                        child: Icon(
+                          Icons.account_circle_outlined,
+                          color: kWhite,
+                          size: size.width * 0.1,
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: size.height * 0.05,
-                      left: size.width * 0.56,
-                      child: Container(
-                        height: size.width * 0.1,
-                        width: size.width * 0.1,
-                        decoration: BoxDecoration(
-                          color: Palette.darkBlue,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: kWhite, width: 2),
-                        ),
-                        child: const Icon(
-                          Icons.arrow_upward,
-                          color: kWhite,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: size.width * 0.1,
+                  ),
                 ),
                 Column(
                   children: [

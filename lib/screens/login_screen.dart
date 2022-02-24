@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                       'Se connecter',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 50,
+                          fontSize: 35,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

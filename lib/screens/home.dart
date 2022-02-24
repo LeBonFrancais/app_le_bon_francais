@@ -3,8 +3,9 @@ import 'dart:core';
 
 import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/btmappbar.dart';
-import 'package:app_le_bon_francais/widgets/card.dart';
+import 'package:app_le_bon_francais/class/card.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return const Text(
       'Le Bon Français',
       style: TextStyle(
-          color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),
+          color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
     );
   }
 
@@ -171,9 +172,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     ),
                                                     onPressed: () {
                                                       //Button to open the website to reserve it
-                                                      Navigator.pushNamed(
-                                                          context,
-                                                          'WebViewApp');
+                                                      Fluttertoast.showToast(
+                                                          msg:
+                                                              'Composant défectueux - Redirection vers le service sur le site web !');
                                                     },
                                                     gradient:
                                                         const LinearGradient(

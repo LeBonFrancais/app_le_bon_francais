@@ -1,4 +1,5 @@
 import 'package:app_le_bon_francais/pallete.dart';
+import 'package:app_le_bon_francais/screens/new_service_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/screens.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,7 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
     return MaterialApp(
       title: 'Le Bon Francais',
       debugShowCheckedModeBanner: false,
