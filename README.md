@@ -30,7 +30,6 @@ The goal: an application that connects people who are geographically close. It a
 ## Authors
 
 * [**MataRedDev**](https://github.com/MataReDev)
-* [**thaisbrun**](https://github.com/thaisbrun)
 
 See also the list of [contributors](https://github.com/LeBonFrancais/app_le_bon_francais/graphs/contributors) who participated in this project.
 
