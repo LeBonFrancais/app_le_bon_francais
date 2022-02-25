@@ -99,10 +99,8 @@ class _NewServiceState extends State<NewService> {
     Object? val = -1;
     String selectedValue = "49";
 
-    return Scaffold(
-      bottomNavigationBar: const BtmAppBar(),
-      extendBody: true,
-      body: Container(
+    return Expanded(
+      child: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
@@ -129,104 +127,106 @@ class _NewServiceState extends State<NewService> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                const SizedBox(
-                  height: 25,
-                ),
-                const TextInputField(
-                  icon: Icons.title,
-                  hint: 'Titre',
-                  inputType: TextInputType.text,
-                  inputAction: TextInputAction.next,
-                ),
-                const TextInputField(
-                  icon: Icons.text_snippet_outlined,
-                  hint: 'Description',
-                  inputType: TextInputType.multiline,
-                  inputAction: TextInputAction.next,
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
-                SizedBox(
-                  height: size.height * 0.1,
-                  width: size.width * 0.8,
-                  child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        iconColor: Colors.white,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Colors.transparent, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Colors.transparent, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey,
-                      ),
-                      dropdownColor: Colors.grey,
-                      focusColor: Colors.white,
-                      value: selectedValue,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          selectedValue = newValue!;
-                        });
-                      },
-                      items: dropdownItems),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                SizedBox(
-                  height: size.height * 0.2,
-                  width: size.width * 0.8,
-                  child: Column(
-                    //Radio button pour choisir entre recherche ou proposition
-                    children: [
-                      ListTile(
-                        title: const Text(
-                          "Recherche",
-                          style: TextStyle(
-                            color: Colors.white,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const TextInputField(
+                    icon: Icons.title,
+                    hint: 'Titre',
+                    inputType: TextInputType.text,
+                    inputAction: TextInputAction.next,
+                  ),
+                  const TextInputField(
+                    icon: Icons.text_snippet_outlined,
+                    hint: 'Description',
+                    inputType: TextInputType.multiline,
+                    inputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  SizedBox(
+                    height: size.height * 0.1,
+                    width: size.width * 0.8,
+                    child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          iconColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Colors.transparent, width: 2),
+                            borderRadius: BorderRadius.circular(20),
                           ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Colors.transparent, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey,
                         ),
-                        leading: Radio(
-                          value: 1,
-                          groupValue: val,
-                          onChanged: (value) {
-                            setState(() {
-                              val = value;
-                            });
-                          },
-                          activeColor: Palette.darkBlue,
-                        ),
-                      ),
-                      ListTile(
-                        title: const Text("Proposition",
+                        dropdownColor: Colors.grey,
+                        focusColor: Colors.white,
+                        value: selectedValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedValue = newValue!;
+                          });
+                        },
+                        items: dropdownItems),
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  SizedBox(
+                    height: size.height * 0.2,
+                    width: size.width * 0.8,
+                    child: Column(
+                      //Radio button pour choisir entre recherche ou proposition
+                      children: [
+                        ListTile(
+                          title: const Text(
+                            "Recherche",
                             style: TextStyle(
                               color: Colors.white,
-                            )),
-                        leading: Radio(
-                          value: 2,
-                          groupValue: val,
-                          onChanged: (value) {
-                            setState(() {
-                              val = value;
-                            });
-                          },
-                          activeColor: Palette.darkBlue,
+                            ),
+                          ),
+                          leading: Radio(
+                            value: 1,
+                            groupValue: val,
+                            onChanged: (value) {
+                              setState(() {
+                                val = value;
+                              });
+                            },
+                            activeColor: Palette.darkBlue,
+                          ),
                         ),
-                      ),
-                    ],
+                        ListTile(
+                          title: const Text("Proposition",
+                              style: TextStyle(
+                                color: Colors.white,
+                              )),
+                          leading: Radio(
+                            value: 2,
+                            groupValue: val,
+                            onChanged: (value) {
+                              setState(() {
+                                val = value;
+                              });
+                            },
+                            activeColor: Palette.darkBlue,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                _button(context),
-              ],
+                  _button(context),
+                ],
+              ),
             ),
             const SizedBox(
               height: 40,

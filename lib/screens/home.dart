@@ -5,9 +5,9 @@ import 'package:app_le_bon_francais/pallete.dart';
 import 'package:app_le_bon_francais/widgets/btmappbar.dart';
 import 'package:app_le_bon_francais/class/card.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Future<List<CardWidget>> fetchData() async {
   final response =
@@ -25,6 +25,15 @@ class HomeScreen extends StatefulWidget {
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+
+  _launchURL(int id) async {
+    String url = 'http://192.168.210.1/tv?id=' + id.toString();
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -172,9 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     ),
                                                     onPressed: () {
                                                       //Button to open the website to reserve it
-                                                      Fluttertoast.showToast(
-                                                          msg:
-                                                              'Composant défectueux - Redirection vers le service sur le site web !');
+                                                      widget._launchURL(
+                                                          data[index]
+                                                              .idService);
                                                     },
                                                     gradient:
                                                         const LinearGradient(
